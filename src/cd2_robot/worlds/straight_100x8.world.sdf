@@ -238,9 +238,10 @@
       </link>
     </model>
     
-    <!-- ============== VẬT CẢN TRÊN LÀN 2 (y≈0) ============== -->
+    <!-- ============== VẬT CẢN RẢI RÁC TRÊN 3 LÀN ============== -->
+    <!-- Làn 1: y ≈ +2.0 | Làn 2: y ≈ 0.0 | Làn 3: y ≈ -2.0 -->
     
-    <!-- Vật cản 1: x=15, y=0 (giữa làn 2) -->
+    <!-- Vật cản 1: Làn 2 (giữa) - x=15 -->
     <model name="obstacle_01">
       <static>true</static>
       <pose>15 0 0.6 0 0 0</pose>
@@ -262,10 +263,10 @@
       </link>
     </model>
     
-    <!-- Vật cản 2: x=30, y=0.3 -->
+    <!-- Vật cản 2: Làn 1 (trái) - x=25 -->
     <model name="obstacle_02">
       <static>true</static>
-      <pose>30 0.3 0.6 0 0 0</pose>
+      <pose>25 2.0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
@@ -284,10 +285,10 @@
       </link>
     </model>
     
-    <!-- Vật cản 3: x=45, y=-0.2 -->
+    <!-- Vật cản 3: Làn 3 (phải) - x=35 -->
     <model name="obstacle_03">
       <static>true</static>
-      <pose>45 -0.2 0.6 0 0 0</pose>
+      <pose>35 -2.0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
@@ -306,10 +307,10 @@
       </link>
     </model>
     
-    <!-- Vật cản 4: x=60, y=0.1 -->
+    <!-- Vật cản 4: Làn 2 (giữa) - x=45 -->
     <model name="obstacle_04">
       <static>true</static>
-      <pose>60 0.1 0.6 0 0 0</pose>
+      <pose>45 0.2 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
@@ -328,10 +329,10 @@
       </link>
     </model>
     
-    <!-- Vật cản 5: x=75, y=0 -->
+    <!-- Vật cản 5: Làn 1 (trái) - x=55 -->
     <model name="obstacle_05">
       <static>true</static>
-      <pose>75 0 0.6 0 0 0</pose>
+      <pose>55 2.0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
@@ -350,10 +351,10 @@
       </link>
     </model>
     
-    <!-- Vật cản 6: x=90, y=-0.1 -->
+    <!-- Vật cản 6: Làn 3 (phải) - x=65 -->
     <model name="obstacle_06">
       <static>true</static>
-      <pose>90 -0.1 0.6 0 0 0</pose>
+      <pose>65 -2.0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
           <geometry>
@@ -367,6 +368,72 @@
           <material>
             <ambient>0.7 0.4 0.2 1</ambient>
             <diffuse>0.8 0.5 0.3 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Vật cản 7: Làn 2 (giữa) - x=75 -->
+    <model name="obstacle_07">
+      <static>true</static>
+      <pose>75 -0.1 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>1.0 1.2 1.2</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>1.0 1.2 1.2</size></box>
+          </geometry>
+          <material>
+            <ambient>0.8 0.2 0.5 1</ambient>
+            <diffuse>0.9 0.3 0.6 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Vật cản 8: Làn 1 (trái) - x=85 -->
+    <model name="obstacle_08">
+      <static>true</static>
+      <pose>85 1.8 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <cylinder><radius>0.5</radius><length>1.2</length></cylinder>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <cylinder><radius>0.5</radius><length>1.2</length></cylinder>
+          </geometry>
+          <material>
+            <ambient>0.3 0.5 0.7 1</ambient>
+            <diffuse>0.4 0.6 0.8 1</diffuse>
+          </material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Vật cản 9: Làn 3 (phải) - x=95 -->
+    <model name="obstacle_09">
+      <static>true</static>
+      <pose>95 -1.9 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry>
+            <box><size>1.1 1.0 1.2</size></box>
+          </geometry>
+        </collision>
+        <visual name="visual">
+          <geometry>
+            <box><size>1.1 1.0 1.2</size></box>
+          </geometry>
+          <material>
+            <ambient>0.5 0.7 0.3 1</ambient>
+            <diffuse>0.6 0.8 0.4 1</diffuse>
           </material>
         </visual>
       </link>
