@@ -1,0 +1,397 @@
+<?xml version="1.0"?>
+<!--
+  XE 4 BÁNH VỚI DIFF-DRIVE + GPU LIDAR
+  Định dạng SDF để Gazebo Sim 8 nhận đúng sensor type
+  
+  - base_link: thân xe chính
+  - 4 bánh (rear_left, rear_right, front_left, front_right)
+  - laser_link: GPU LiDAR sensor
+  - Plugin: diff_drive điều khiển 2 bánh sau
+  - Topics: /cmd_vel, /odom, /scan, /tf, /joint_states
+-->
+<sdf version="1.9">
+  <model name="cd2_car">
+    <static>false</static>
+    
+    <!-- ======================== BASE LINK ======================== -->
+    <link name="base_link">
+      <pose>0 0 0.22 0 0 0</pose>
+      
+      <inertial>
+        <mass>10.0</mass>
+        <inertia>
+          <ixx>0.229167</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.570833</iyy>
+          <iyz>0</iyz>
+          <izz>0.741667</izz>
+        </inertia>
+      </inertial>
+      
+      <visual name="chassis_visual">
+        <geometry>
+          <box>
+            <size>0.8 0.5 0.2</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.2 0.4 0.8 1.0</ambient>
+          <diffuse>0.2 0.4 0.8 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="chassis_collision">
+        <geometry>
+          <box>
+            <size>0.8 0.5 0.2</size>
+          </box>
+        </geometry>
+      </collision>
+    </link>
+    
+    <!-- ======================== LASER LINK ======================== -->
+    <link name="laser_link">
+      <pose relative_to="base_link">0.42 0 0.15 0 0 0</pose>
+      
+      <inertial>
+        <mass>0.2</mass>
+        <inertia>
+          <ixx>0.0001</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.0001</iyy>
+          <iyz>0</iyz>
+          <izz>0.0001</izz>
+        </inertia>
+      </inertial>
+      
+      <visual name="lidar_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>0.06</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.8 0.2 0.2 1.0</ambient>
+          <diffuse>0.8 0.2 0.2 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="lidar_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.05</radius>
+            <length>0.06</length>
+          </cylinder>
+        </geometry>
+      </collision>
+      
+      <!-- 
+        GPU LIDAR SENSOR - QUAN TRỌNG!!!
+        Phải dùng type="gpu_lidar" trong SDF, KHÔNG dùng "lidar"
+        Gazebo Sim 8 chỉ hỗ trợ gpu_lidar, ray sensor không được hỗ trợ
+      -->
+      <sensor name="gpu_lidar" type="gpu_lidar">
+        <pose>0 0 0.03 0 0 0</pose>
+        <topic>/scan</topic>
+        <update_rate>10</update_rate>
+        <always_on>true</always_on>
+        <visualize>true</visualize>
+        <gz_frame_id>laser_link</gz_frame_id>
+        <lidar>
+          <scan>
+            <horizontal>
+              <samples>360</samples>
+              <resolution>1</resolution>
+              <min_angle>-3.14159</min_angle>
+              <max_angle>3.14159</max_angle>
+            </horizontal>
+          </scan>
+          <range>
+            <min>0.15</min>
+            <max>10.0</max>
+            <resolution>0.01</resolution>
+          </range>
+          <noise>
+            <type>gaussian</type>
+            <mean>0.0</mean>
+            <stddev>0.01</stddev>
+          </noise>
+        </lidar>
+      </sensor>
+    </link>
+    
+    <joint name="laser_joint" type="fixed">
+      <parent>base_link</parent>
+      <child>laser_link</child>
+    </joint>
+    
+    <!-- ======================== REAR LEFT WHEEL ======================== -->
+    <link name="rear_left_wheel">
+      <pose relative_to="base_link">-0.25 0.275 -0.1 -1.5708 0 0</pose>
+      
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00414</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00414</iyy>
+          <iyz>0</iyz>
+          <izz>0.0072</izz>
+        </inertia>
+      </inertial>
+      
+      <visual name="wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.1 0.1 0.1 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    
+    <joint name="rear_left_wheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>rear_left_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    
+    <!-- ======================== REAR RIGHT WHEEL ======================== -->
+    <link name="rear_right_wheel">
+      <pose relative_to="base_link">-0.25 -0.275 -0.1 -1.5708 0 0</pose>
+      
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00414</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00414</iyy>
+          <iyz>0</iyz>
+          <izz>0.0072</izz>
+        </inertia>
+      </inertial>
+      
+      <visual name="wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.1 0.1 0.1 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>1.0</mu>
+              <mu2>1.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    
+    <joint name="rear_right_wheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>rear_right_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    
+    <!-- ======================== FRONT LEFT WHEEL (CASTER) ======================== -->
+    <link name="front_left_wheel">
+      <pose relative_to="base_link">0.25 0.275 -0.1 -1.5708 0 0</pose>
+      
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00414</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00414</iyy>
+          <iyz>0</iyz>
+          <izz>0.0072</izz>
+        </inertia>
+      </inertial>
+      
+      <visual name="wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.1 0.1 0.1 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    
+    <joint name="front_left_wheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>front_left_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    
+    <!-- ======================== FRONT RIGHT WHEEL (CASTER) ======================== -->
+    <link name="front_right_wheel">
+      <pose relative_to="base_link">0.25 -0.275 -0.1 -1.5708 0 0</pose>
+      
+      <inertial>
+        <mass>1.0</mass>
+        <inertia>
+          <ixx>0.00414</ixx>
+          <ixy>0</ixy>
+          <ixz>0</ixz>
+          <iyy>0.00414</iyy>
+          <iyz>0</iyz>
+          <izz>0.0072</izz>
+        </inertia>
+      </inertial>
+      
+      <visual name="wheel_visual">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <material>
+          <ambient>0.1 0.1 0.1 1.0</ambient>
+          <diffuse>0.1 0.1 0.1 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="wheel_collision">
+        <geometry>
+          <cylinder>
+            <radius>0.12</radius>
+            <length>0.08</length>
+          </cylinder>
+        </geometry>
+        <surface>
+          <friction>
+            <ode>
+              <mu>0.0</mu>
+              <mu2>0.0</mu2>
+            </ode>
+          </friction>
+        </surface>
+      </collision>
+    </link>
+    
+    <joint name="front_right_wheel_joint" type="revolute">
+      <parent>base_link</parent>
+      <child>front_right_wheel</child>
+      <axis>
+        <xyz>0 0 1</xyz>
+        <limit>
+          <lower>-1e16</lower>
+          <upper>1e16</upper>
+        </limit>
+      </axis>
+    </joint>
+    
+    <!-- ======================== PLUGINS ======================== -->
+    
+    <!-- DIFF DRIVE PLUGIN - Điều khiển 2 bánh sau -->
+    <plugin filename="gz-sim-diff-drive-system" name="gz::sim::systems::DiffDrive">
+      <left_joint>rear_left_wheel_joint</left_joint>
+      <right_joint>rear_right_wheel_joint</right_joint>
+      <wheel_separation>0.55</wheel_separation>
+      <wheel_radius>0.12</wheel_radius>
+      <max_linear_acceleration>5.0</max_linear_acceleration>
+      <min_linear_acceleration>-5.0</min_linear_acceleration>
+      <max_angular_acceleration>4.0</max_angular_acceleration>
+      <min_angular_acceleration>-4.0</min_angular_acceleration>
+      <topic>/cmd_vel</topic>
+      <odom_topic>/odom</odom_topic>
+      <tf_topic>/tf</tf_topic>
+      <frame_id>odom</frame_id>
+      <child_frame_id>base_link</child_frame_id>
+      <odom_publish_frequency>50</odom_publish_frequency>
+    </plugin>
+    
+    <!-- JOINT STATE PUBLISHER -->
+    <plugin filename="gz-sim-joint-state-publisher-system" name="gz::sim::systems::JointStatePublisher">
+      <topic>/joint_states</topic>
+      <joint_name>rear_left_wheel_joint</joint_name>
+      <joint_name>rear_right_wheel_joint</joint_name>
+      <joint_name>front_left_wheel_joint</joint_name>
+      <joint_name>front_right_wheel_joint</joint_name>
+    </plugin>
+    
+  </model>
+</sdf>
