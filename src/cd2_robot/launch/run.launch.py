@@ -2,14 +2,14 @@
 """
 LAUNCH FILE: Chạy xe tự hành né vật cản
 - Khởi động Gazebo với world đường thẳng 100m
-- Spawn robot từ SDF model (QUAN TRỌNG: dùng SDF để giữ gpu_lidar type!)
+- Spawn robot từ SDF model
 - Bridge các topic: /cmd_vel, /odom, /scan
 - Chạy avoidance_node điều khiển xe
 
 GHI CHÚ:
 - KHÔNG dùng URDF vì khi convert sang SDF, gpu_lidar bị đổi thành lidar
 - Gazebo Sim 8 KHÔNG hỗ trợ "lidar" sensor, chỉ hỗ trợ "gpu_lidar"
-- Model SDF được định nghĩa trực tiếp trong models/cd2_car/model.sdf
+- Model SDF được định nghĩa trong models/cd2_car/model.sdf
 """
 
 import os
@@ -51,15 +51,15 @@ def generate_launch_description():
     
     # 2. Spawn robot vào Gazebo từ SDF file
     # QUAN TRỌNG: Dùng -file thay vì -topic để spawn từ SDF
-    # Sử dụng shell với sleep để đợi Gazebo khởi động xong
+    # Spawn ở làn 2: x=2, y=0, z=0.25
     spawn_robot = ExecuteProcess(
         cmd=[
             'bash', '-c',
-            f'sleep 10 && gz service -s /world/straight_road_world/create '
+            f'sleep 5 && gz service -s /world/straight_road_world/create '
             f'--reqtype gz.msgs.EntityFactory '
             f'--reptype gz.msgs.Boolean '
             f'--timeout 10000 '
-            f'--req \'sdf_filename: "{model_sdf_file}", name: "cd2_car", pose: {{position: {{x: 2.0, y: 0.0, z: 0.3}}}}\''
+            f'--req \'sdf_filename: "{model_sdf_file}", name: "cd2_car", pose: {{position: {{x: 2.0, y: 0.0, z: 0.25}}}}\''
         ],
         output='screen',
         shell=False
@@ -87,7 +87,7 @@ def generate_launch_description():
         ]
     )
     
-    # 4. Node điều khiển né vật cản
+    # 4. Node điều khiển né vật cản + kéo về làn 2
     avoidance_node = Node(
         package='cd2_control',
         executable='avoidance_node',
@@ -95,16 +95,21 @@ def generate_launch_description():
         output='screen',
         parameters=[{
             'use_sim_time': True,
-            # Các tham số có thể tune
-            'forward_speed': 2.0,
-            'safe_distance': 2.5,
-            'front_angle_deg': 25.0,
-            'min_turn': 0.4,
-            'max_turn': 2.2,
-            'max_angular_rate_change': 3.0,
-            'hysteresis_margin': 0.3,
-            'max_distance_m': 105.0,  # Đi hết đường 100m
-            'max_range': 10.0
+            # Tham số điều khiển
+            'toc_do_tien': 1.5,
+            'toc_do_lui': 0.5,
+            'toc_do_quay': 1.0,
+            'khoang_cach_an_toan': 2.0,
+            'goc_quet_truoc': 15.0,
+            'thoi_gian_re_90': 1.57,
+            'thoi_gian_chay_ngang': 1.5,
+            'thoi_gian_lui': 0.5,
+            'khoang_cach_toi_da': 105.0,
+            'tam_xa_lidar': 5.0,
+            # Tham số làn đường
+            'y_lan_2': 0.0,
+            'nguong_y_ok': 0.3,
+            'nguong_yaw_ok': 0.1,
         }]
     )
     

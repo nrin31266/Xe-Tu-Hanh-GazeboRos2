@@ -48,11 +48,60 @@
           </box>
         </geometry>
       </collision>
+      
+
+      
+      <!-- TRẦN XE (ROOF) - nằm trên thân xe -->
+      <visual name="roof_visual">
+        <pose>-0.1 0 0.12 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.45 0.18</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.15 0.3 0.6 1.0</ambient>
+          <diffuse>0.2 0.35 0.7 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="roof_collision">
+        <pose>-0.1 0 0.15 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.5 0.45 0.08</size>
+          </box>
+        </geometry>
+      </collision>
+      
+      <!-- TRỤ ĐỠ LIDAR - kết nối thân xe với LiDAR -->
+      <visual name="lidar_mount_visual">
+        <pose>0.25 0 0.12 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.16</size>
+          </box>
+        </geometry>
+        <material>
+          <ambient>0.3 0.3 0.3 1.0</ambient>
+          <diffuse>0.4 0.4 0.4 1.0</diffuse>
+        </material>
+      </visual>
+      
+      <collision name="lidar_mount_collision">
+        <pose>0.25 0 0.12 0 0 0</pose>
+        <geometry>
+          <box>
+            <size>0.08 0.08 0.16</size>
+          </box>
+        </geometry>
+      </collision>
     </link>
     
     <!-- ======================== LASER LINK ======================== -->
     <link name="laser_link">
-      <pose relative_to="base_link">0.42 0 0.15 0 0 0</pose>
+      <!-- Đặt trên trụ đỡ, gắn chắc vào xe -->
+      <pose relative_to="base_link">0.25 0 0.23 0 0 0</pose>
       
       <inertial>
         <mass>0.2</mass>
