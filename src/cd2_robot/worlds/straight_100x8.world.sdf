@@ -162,279 +162,513 @@
       </link>
     </model>
     
-    <!-- ============== MARKER START (xanh lá) ============== -->
-    <model name="start_marker">
+    <!-- ============== MARKER START (xanh lá neon) ============== -->
+    <!-- Vạch kẻ ô caro START -->
+    <model name="start_checker_1">
       <static>true</static>
-      <pose>0 0 0.005 0 0 0</pose>
-      <link name="marker_link">
-        <visual name="marker_visual">
-          <geometry>
-            <box>
-              <size>2 6 0.01</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.1 0.7 0.2 1</ambient>
-            <diffuse>0.2 0.9 0.3 1</diffuse>
-          </material>
+      <pose>-0.5 2.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_2">
+      <static>true</static>
+      <pose>0.5 2.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_3">
+      <static>true</static>
+      <pose>-0.5 1.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_4">
+      <static>true</static>
+      <pose>0.5 1.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_5">
+      <static>true</static>
+      <pose>-0.5 0.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_6">
+      <static>true</static>
+      <pose>0.5 0.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_7">
+      <static>true</static>
+      <pose>-0.5 -0.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_8">
+      <static>true</static>
+      <pose>0.5 -0.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_9">
+      <static>true</static>
+      <pose>-0.5 -1.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_10">
+      <static>true</static>
+      <pose>0.5 -1.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_11">
+      <static>true</static>
+      <pose>-0.5 -2.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_checker_12">
+      <static>true</static>
+      <pose>0.5 -2.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <model name="start_pole">
+    <!-- Cổng START (2 cột + thanh ngang) -->
+    <model name="start_pole_left">
       <static>true</static>
-      <pose>-1 0 1.5 0 0 0</pose>
-      <link name="pole_link">
-        <visual name="pole_visual">
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>3</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.1 0.6 0.2 1</ambient>
-            <diffuse>0.2 0.8 0.3 1</diffuse>
-          </material>
+      <pose>0 3.5 1.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.12</radius><length>3</length></cylinder></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_pole_right">
+      <static>true</static>
+      <pose>0 -3.5 1.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.12</radius><length>3</length></cylinder></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="start_arch">
+      <static>true</static>
+      <pose>0 0 2.8 1.5708 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.1</radius><length>7</length></cylinder></geometry>
+          <material><ambient>0.1 0.9 0.3 1</ambient><diffuse>0.2 1 0.4 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+
+    
+    <!-- ============== MARKER GOAL (đỏ/cam neon) ============== -->
+    <!-- Vạch kẻ ô caro FINISH -->
+    <model name="goal_checker_1">
+      <static>true</static>
+      <pose>99.5 2.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_2">
+      <static>true</static>
+      <pose>100.5 2.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_3">
+      <static>true</static>
+      <pose>99.5 1.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_4">
+      <static>true</static>
+      <pose>100.5 1.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_5">
+      <static>true</static>
+      <pose>99.5 0.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_6">
+      <static>true</static>
+      <pose>100.5 0.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_7">
+      <static>true</static>
+      <pose>99.5 -0.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_8">
+      <static>true</static>
+      <pose>100.5 -0.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_9">
+      <static>true</static>
+      <pose>99.5 -1.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_10">
+      <static>true</static>
+      <pose>100.5 -1.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_11">
+      <static>true</static>
+      <pose>99.5 -2.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    <model name="goal_checker_12">
+      <static>true</static>
+      <pose>100.5 -2.5 0.004 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><box><size>1 1 0.002</size></box></geometry>
+          <material><ambient>1 1 1 1</ambient><diffuse>1 1 1 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <!-- ============== MARKER GOAL (đỏ) ============== -->
-    <model name="goal_marker">
+    <!-- Cổng FINISH (2 cột + thanh ngang) -->
+    <model name="goal_pole_left">
       <static>true</static>
-      <pose>100 0 0.005 0 0 0</pose>
-      <link name="marker_link">
-        <visual name="marker_visual">
-          <geometry>
-            <box>
-              <size>2 6 0.01</size>
-            </box>
-          </geometry>
-          <material>
-            <ambient>0.7 0.1 0.1 1</ambient>
-            <diffuse>0.9 0.2 0.2 1</diffuse>
-          </material>
+      <pose>100 3.5 1.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.12</radius><length>3</length></cylinder></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
         </visual>
       </link>
     </model>
-    
-    <model name="goal_pole">
+    <model name="goal_pole_right">
       <static>true</static>
-      <pose>101 0 1.5 0 0 0</pose>
-      <link name="pole_link">
-        <visual name="pole_visual">
-          <geometry>
-            <cylinder>
-              <radius>0.1</radius>
-              <length>3</length>
-            </cylinder>
-          </geometry>
-          <material>
-            <ambient>0.6 0.1 0.1 1</ambient>
-            <diffuse>0.8 0.2 0.2 1</diffuse>
-          </material>
+      <pose>100 -3.5 1.5 0 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.12</radius><length>3</length></cylinder></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
         </visual>
       </link>
     </model>
+    <model name="goal_arch">
+      <static>true</static>
+      <pose>100 0 2.8 1.5708 0 0</pose>
+      <link name="link">
+        <visual name="visual">
+          <geometry><cylinder><radius>0.1</radius><length>7</length></cylinder></geometry>
+          <material><ambient>1 0.3 0.1 1</ambient><diffuse>1 0.4 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+   
     
     <!-- ============== VẬT CẢN RẢI RÁC TRÊN 3 LÀN ============== -->
     <!-- Làn 1: y ≈ +2.0 | Làn 2: y ≈ 0.0 | Làn 3: y ≈ -2.0 -->
+    <!-- MÀU SẮC: Hồng, Tím, Xanh dương, Xanh lá, Cam, Vàng -->
     
-    <!-- Vật cản 1: Làn 2 (giữa) - x=15 -->
+    <!-- Vật cản 1: Làn 2 (giữa) - x=12 - HỘP HỒNG NEON -->
     <model name="obstacle_01">
       <static>true</static>
-      <pose>15 0 0.6 0 0 0</pose>
+      <pose>12 0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
-          <material>
-            <ambient>0.8 0.2 0.2 1</ambient>
-            <diffuse>0.9 0.3 0.3 1</diffuse>
-          </material>
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+          <material><ambient>1 0.2 0.6 1</ambient><diffuse>1 0.3 0.7 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <!-- Vật cản 2: Làn 1 (trái) - x=25 -->
+    <!-- Vật cản 2: Làn 1 (trái) - x=20 - TRỤ XANH DƯƠNG -->
     <model name="obstacle_02">
       <static>true</static>
-      <pose>25 2.0 0.6 0 0 0</pose>
+      <pose>20 2.0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <cylinder><radius>0.85</radius><length>1.2</length></cylinder>
-          </geometry>
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <cylinder><radius>0.85</radius><length>1.2</length></cylinder>
-          </geometry>
-          <material>
-            <ambient>0.2 0.6 0.8 1</ambient>
-            <diffuse>0.3 0.7 0.9 1</diffuse>
-          </material>
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>0.2 0.6 1 1</ambient><diffuse>0.3 0.7 1 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <!-- Vật cản 3: Làn 3 (phải) - x=35 -->
+    <!-- Vật cản 3: Làn 2 (giữa) - x=28 - HỘP TÍM -->
     <model name="obstacle_03">
+      <static>true</static>
+      <pose>28 0.1 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+          <material><ambient>0.7 0.2 0.9 1</ambient><diffuse>0.8 0.3 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Vật cản 4: Làn 3 (phải) - x=35 - TRỤ CAM -->
+    <model name="obstacle_04">
       <static>true</static>
       <pose>35 -2.0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
-          <material>
-            <ambient>0.8 0.6 0.1 1</ambient>
-            <diffuse>0.9 0.7 0.2 1</diffuse>
-          </material>
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>1 0.5 0.1 1</ambient><diffuse>1 0.6 0.2 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <!-- Vật cản 4: Làn 2 (giữa) - x=45 -->
-    <model name="obstacle_04">
-      <static>true</static>
-      <pose>45 0.2 0.6 0 0 0</pose>
-      <link name="link">
-        <collision name="collision">
-          <geometry>
-            <cylinder><radius>0.85</radius><length>1.2</length></cylinder>
-          </geometry>
-        </collision>
-        <visual name="visual">
-          <geometry>
-            <cylinder><radius>0.85</radius><length>1.2</length></cylinder>
-          </geometry>
-          <material>
-            <ambient>0.6 0.2 0.6 1</ambient>
-            <diffuse>0.7 0.3 0.7 1</diffuse>
-          </material>
-        </visual>
-      </link>
-    </model>
-    
-    <!-- Vật cản 5: Làn 1 (trái) - x=55 -->
+    <!-- Vật cản 5: Làn 1 (trái) - x=42 - HỘP VÀNG NEON -->
     <model name="obstacle_05">
       <static>true</static>
-      <pose>55 2.0 0.6 0 0 0</pose>
+      <pose>42 2.0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
-          <material>
-            <ambient>0.2 0.7 0.4 1</ambient>
-            <diffuse>0.3 0.8 0.5 1</diffuse>
-          </material>
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+          <material><ambient>1 0.9 0.1 1</ambient><diffuse>1 1 0.2 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <!-- Vật cản 6: Làn 3 (phải) - x=65 -->
+    <!-- Vật cản 6: Làn 2 (giữa) - x=48 - TRỤ XANH LÁ -->
     <model name="obstacle_06">
       <static>true</static>
-      <pose>65 -2.0 0.6 0 0 0</pose>
+      <pose>48 -0.1 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <cylinder><radius>0.85</radius><length>1.2</length></cylinder>
-          </geometry>
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <cylinder><radius>0.85</radius><length>1.2</length></cylinder>
-          </geometry>
-          <material>
-            <ambient>0.7 0.4 0.2 1</ambient>
-            <diffuse>0.8 0.5 0.3 1</diffuse>
-          </material>
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>0.2 0.9 0.3 1</ambient><diffuse>0.3 1 0.4 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <!-- Vật cản 7: Làn 2 (giữa) - x=75 -->
+    <!-- Vật cản 7: Làn 3 (phải) - x=55 - HỘP HỒNG -->
     <model name="obstacle_07">
       <static>true</static>
-      <pose>75 -0.1 0.6 0 0 0</pose>
+      <pose>55 -2.0 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
-          <material>
-            <ambient>0.8 0.2 0.5 1</ambient>
-            <diffuse>0.9 0.3 0.6 1</diffuse>
-          </material>
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+          <material><ambient>1 0.4 0.7 1</ambient><diffuse>1 0.5 0.8 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <!-- Vật cản 8: Làn 1 (trái) - x=85 -->
+    <!-- Vật cản 8: Làn 2 (giữa) - x=62 - TRỤ XANH DƯƠNG SÁNG -->
     <model name="obstacle_08">
       <static>true</static>
-      <pose>85 1.8 0.6 0 0 0</pose>
+      <pose>62 0.2 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <cylinder><radius>0.85</radius><length>1.2</length></cylinder>
-          </geometry>
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <cylinder><radius>0.85</radius><length>1.2</length></cylinder>
-          </geometry>
-          <material>
-            <ambient>0.3 0.5 0.7 1</ambient>
-            <diffuse>0.4 0.6 0.8 1</diffuse>
-          </material>
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>0.3 0.8 1 1</ambient><diffuse>0.4 0.9 1 1</diffuse></material>
         </visual>
       </link>
     </model>
     
-    <!-- Vật cản 9: Làn 3 (phải) - x=95 -->
+    <!-- Vật cản 9: Làn 1 (trái) - x=68 - HỘP CAM NEON -->
     <model name="obstacle_09">
       <static>true</static>
-      <pose>95 -1.9 0.6 0 0 0</pose>
+      <pose>68 1.9 0.6 0 0 0</pose>
       <link name="link">
         <collision name="collision">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
         </collision>
         <visual name="visual">
-          <geometry>
-            <box><size>1.5 1.8 1.2</size></box>
-          </geometry>
-          <material>
-            <ambient>0.5 0.7 0.3 1</ambient>
-            <diffuse>0.6 0.8 0.4 1</diffuse>
-          </material>
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+          <material><ambient>1 0.6 0.1 1</ambient><diffuse>1 0.7 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Vật cản 10: Làn 2 (giữa) - x=75 - TRỤ TÍM -->
+    <model name="obstacle_10">
+      <static>true</static>
+      <pose>75 0 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>0.6 0.2 0.9 1</ambient><diffuse>0.7 0.3 1 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Vật cản 11: Làn 3 (phải) - x=82 - HỘP XANH LÁ NEON -->
+    <model name="obstacle_11">
+      <static>true</static>
+      <pose>82 -1.9 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+          <material><ambient>0.3 1 0.4 1</ambient><diffuse>0.4 1 0.5 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Vật cản 12: Làn 1 (trái) - x=88 - TRỤ VÀNG -->
+    <model name="obstacle_12">
+      <static>true</static>
+      <pose>88 2.0 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><cylinder><radius>0.85</radius><length>1.2</length></cylinder></geometry>
+          <material><ambient>1 0.85 0.1 1</ambient><diffuse>1 0.95 0.2 1</diffuse></material>
+        </visual>
+      </link>
+    </model>
+    
+    <!-- Vật cản 13: Làn 2 (giữa) - x=94 - HỘP ĐỎ TƯƠI -->
+    <model name="obstacle_13">
+      <static>true</static>
+      <pose>94 0.1 0.6 0 0 0</pose>
+      <link name="link">
+        <collision name="collision">
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+        </collision>
+        <visual name="visual">
+          <geometry><box><size>1.5 1.8 1.2</size></box></geometry>
+          <material><ambient>1 0.2 0.2 1</ambient><diffuse>1 0.3 0.3 1</diffuse></material>
         </visual>
       </link>
     </model>
